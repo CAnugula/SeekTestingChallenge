@@ -1,27 +1,28 @@
 import 'chromedriver';
-
+import { Builder } from 'selenium-webdriver';
 import assert from 'assert';
 
-import { WebDriver, Builder } from 'selenium-webdriver';
-// import * as Chrome from 'selenium-webdriver/chrome';
+export class BaseTest {
+  constructor() {}
+  
+  let driver = await new Builde
+  r().forBrowser('chrome').build();
+  
+  describe('Base Test', async () => {
+    before(async () => {
+      await driver.manage().setTimeouts({ implicit: 3000 }); // Wait
+      await driver.manage().window().maximize(); // Maximize
+      await driver.get('https://www.seek.com.au/companies/'); // Get webpage
+    });
 
-describe('Base Test', function () {
-  beforeEach(async function () {
-    let driver = new Builder().forBrowser('chrome').build();
+    after(async () => {
+      await driver.quit();
+    });
 
-    await driver.manage().setTimeouts({ implicit: 3000 }); // Wait
-    await driver.manage().window().maximize(); // Maximize
-    await driver.get('https://www.seek.com.au/companies/'); // Get webpage
+    // describe('test', function () {
+    //   it('something', function () {
+    //     console.log('test');
+    //   });
+    // });
   });
-
-  afterEach(async function () {
-    await driver.quit();
-  });
-
-  // it();
-  // const homePage = new HomePage(this.driver);
-});
-
-// var driver = new webdriver.Builder().
-//     .withCapabilities( { ‘browserName’ : ‘firefox’ } )
-//     .build();
+}
