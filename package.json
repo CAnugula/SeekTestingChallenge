@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "test": "mocha --recursive src/tests/*.js"
+    "test": "mocha src/tests/RatingsTest.js"
   },
   "dependencies": {
     "chromedriver": "^91.0.1",

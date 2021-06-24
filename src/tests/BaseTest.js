@@ -1,28 +1,28 @@
 import 'chromedriver';
-import { Builder } from 'selenium-webdriver';
-import assert from 'assert';
+import { Builder, By } from 'selenium-webdriver';
 
-export class BaseTest {
-  constructor() {}
-  
-  let driver = await new Builde
-  r().forBrowser('chrome').build();
-  
-  describe('Base Test', async () => {
-    before(async () => {
-      await driver.manage().setTimeouts({ implicit: 3000 }); // Wait
-      await driver.manage().window().maximize(); // Maximize
-      await driver.get('https://www.seek.com.au/companies/'); // Get webpage
-    });
+let driver = await new Builder().forBrowser('chrome').build();
 
-    after(async () => {
-      await driver.quit();
-    });
+// describe('Test Suite', () => {
+//   beforeEach(async () => {
+//     await driver.manage().setTimeouts({ implicit: 3000 }); // Wait
+//     await driver.manage().window().maximize(); // Maximize
+//     await driver.get('https://www.seek.com.au/companies/'); // Get webpage
+//   });
 
-    // describe('test', function () {
-    //   it('something', function () {
-    //     console.log('test');
-    //   });
-    // });
-  });
+//   afterEach(async () => {
+//     await driver.quit();
+//   });
+
+//   describe('Test', () => {
+//     it('should do something', () => {
+//       console.log('Test pass');
+//     });
+//   });
+// });
+
+export default class BaseTest {
+  navigateToCompanyCard() {
+    return driver.findElement(By.css("a[data-automation='CompanySearchResult']")).click();
+  }
 }
