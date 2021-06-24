@@ -23,6 +23,6 @@ let driver = await new Builder().forBrowser('chrome').build();
 
 export default class BaseTest {
   navigateToCompanyCard() {
-    driver.findElement(By.css("a[data-automation='CompanySearchResult']")).click();
+    return driver.findElement(By.css("a[data-automation='CompanySearchResult']")).click();
   }
 }
