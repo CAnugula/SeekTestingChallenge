@@ -1,7 +1,9 @@
 {
-  "type": "module",
+  "name": "seek_testing_challenge",
+  "version": "1.0.0",
+  "type":"commonjs",
   "scripts": {
-    "test": "mocha src/tests/**/*.js --timeout=999999"
+    "test": "mocha src/tests/**/*.js --timeout 999999"
   },
   "dependencies": {
     "chromedriver": "^91.0.1",
