@@ -1,4 +1,8 @@
 {
+  "type": "module",
+  "scripts": {
+    "test": "mocha --recursive src/tests/*.js"
+  },
   "dependencies": {
     "chromedriver": "^91.0.1",
     "mocha": "^9.0.1",
