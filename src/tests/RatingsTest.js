@@ -2,10 +2,12 @@ import 'chromedriver';
 import { strict as assert } from 'assert';
 import { By, Builder } from 'selenium-webdriver';
 
-let driver = await new Builder().forBrowser('chrome').build();
+let driver;
 
 describe('Ratings tests', () => {
   beforeEach(async () => {
+    driver = await new Builder().forBrowser('chrome').build();
+
     await driver.manage().setTimeouts({ implicit: 3000 }); // Wait
     await driver.manage().window().maximize(); // Maximize
     await driver.get('https://www.seek.com.au/companies/'); // Get webpage
@@ -15,7 +17,7 @@ describe('Ratings tests', () => {
     await driver.quit();
   });
 
-  describe('Get ratings', () => {
+  context('Get title', () => {
     it('should open the company page and check the titles match', async () => {
       let expectedTitle = await driver
         .findElement(By.css("a[data-automation='CompanySearchResult'] span"))
@@ -26,6 +28,34 @@ describe('Ratings tests', () => {
       let actualTitle = await driver.findElement(By.css('div h1')).getText();
 
       assert.strictEqual(expectedTitle, actualTitle);
+    });
+  });
+
+  context('Get rating average', () => {
+    it('should get the rating from the ratings average score', async () => {
+      let expectedRating = 3.4;
+
+      await driver.findElement(By.css("a[data-automation='CompanySearchResult']")).click();
+
+      let actualRating = await driver
+        .findElement(By.css('#overview-top-section div div div div div div h3'))
+        .getText();
+
+      assert.notStrictEqual(expectedRating, actualRating);
+    });
+  });
+
+  context('Get rating total', () => {
+    it('should get the total rating score from ratings', async () => {
+      let expectedTotalRating = '3426 ratings in total';
+
+      await driver.findElement(By.css("a[data-automation='CompanySearchResult']")).click();
+
+      let actualTotalRating = await driver
+        .findElement(By.css('#overview-top-section div div div div div div span'))
+        .getText();
+
+      assert.notStrictEqual(expectedTotalRating, actualTotalRating);
     });
   });
 });
