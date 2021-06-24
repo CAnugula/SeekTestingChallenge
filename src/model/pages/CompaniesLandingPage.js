@@ -5,8 +5,12 @@ const {Key} = require('selenium-webdriver');
 const BasePage = require('./BasePage');
 
 class CompaniesLandingPage extends BasePage {
-    baseurl = 'https://www.seek.com.au/companies/';
+    currentPageRelativeUrl = "companies/";
     companyTile = 'a[href^="/companies/mcdonalds"]';
+
+    constructor(driver) {
+        super(driver);
+    }
 
     // enter_search(searchText){
     //     //This will enter text into the search field
@@ -16,16 +20,12 @@ class CompaniesLandingPage extends BasePage {
     // }
 
     go_to_landing_page() {
-        return this.go_to_url(this.baseurl);
+        return this.go_to_url(this.baseurl + this.currentPageRelativeUrl);
     }
 
     click_on_company(){
         return this.clickByCss(this.companyTile);
     }
-
-
-
-
 }
 
-module.exports = new CompaniesLandingPage();
+module.exports = CompaniesLandingPage;

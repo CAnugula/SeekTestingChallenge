@@ -3,26 +3,26 @@ const {By} = require('selenium-webdriver');
 var driver = new webdriver.Builder().forBrowser('chrome').build();
 driver.manage().setTimeouts({implicit: (10000)});
 
-class BasePage{
-    
-    constructor(){
-        global.driver = driver;
+class BasePage {
+    baseurl = 'https://www.seek.com.au/';
+    constructor(driver) {
+        this.driver = driver;
     }
 
     go_to_url(theURL){
-        return driver.get(theURL);
+        return this.driver.get(theURL);
     }
 
     enterTextByCss(css, searchText){
-        driver.findElement(By.css(css)).sendKeys(searchText);
+        this.driver.findElement(By.css(css)).sendKeys(searchText);
     }
 
     getById(id) {
-        return driver.findElement(By.id(id));
+        return this.driver.findElement(By.id(id));
     }
 
     getByCss(cssEl) {
-        return driver.findElement(By.css(cssEl));
+        return this.driver.findElement(By.css(cssEl));
     }
 
     clickById(id){
