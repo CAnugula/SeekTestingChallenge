@@ -59,3 +59,5 @@
 - ReactJS Tools
 # Plan, how you're going to split up the work
 - Made a trello board and split components in cards. Cards - can be picked from the To-Do pool.
+# TODO
+- Cover API Testing User stories
