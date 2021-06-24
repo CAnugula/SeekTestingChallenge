@@ -1,11 +1,8 @@
 var webdriver = require('selenium-webdriver');
 const {By} = require('selenium-webdriver');
 const CompaniesLandingPage = require('../model/pages/CompaniesLandingPage');
-// const companiesLandingPage = require('../model/pages/CompaniesLandingPage');
-//import companiesLandingPage from '../model/pages/CompaniesLandingPage.js';
 
 describe('Company overview tests', function(){
-  //this.timeout(50000);
   let page;
   let driver;
 
