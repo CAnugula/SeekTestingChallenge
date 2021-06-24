@@ -4,10 +4,10 @@
 - Users can view average salaries and various ratings given by other employees. 
 - Users can view job postings at companies and see recommendations for other similar companies.  
 # Define your test strategy
-- UI Functional / Regression testing
-1. Selenium
+- UI Functional testing
+   Selenium
 - Backend integration API testing
-1. Supertest
+   Supertest
 # What to test
 >Browser Tests
 
@@ -39,7 +39,7 @@
 >- Company List
 >- Review Ratings
 
->Authentication
+>Authentication - Not doing, since it is in production.
 >- Menu Bar Status
 # Design test cases
 - As a User, I want a search feature that takes Company name and on pressing enter, it should take me to Company overview page.
