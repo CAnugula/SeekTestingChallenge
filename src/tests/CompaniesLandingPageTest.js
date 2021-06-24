@@ -1,7 +1,7 @@
 const companiesLandingPage = require('../model/pages/CompaniesLandingPage');
 //import companiesLandingPage from '../model/pages/CompaniesLandingPage.js';
 
-describe('This is the describe block', function(){
+describe('Company overview tests', function(){
   //this.timeout(50000);
   beforeEach(function(){
       //Enter actions performed before test
@@ -11,10 +11,9 @@ describe('This is the describe block', function(){
       //Enter actions to be performed after test
   });
 
-  it('POM Test Check', async function() {
+  it('Company click check', async function() {
       //Enter test steps
-      var baseurl = 'https://www.seek.com.au/companies/';
-      await companiesLandingPage.go_to_url(baseurl);
+      await companiesLandingPage.go_to_landing_page();
       await companiesLandingPage.click_on_company();
   })
 })

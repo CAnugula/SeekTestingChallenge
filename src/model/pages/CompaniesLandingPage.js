@@ -5,7 +5,7 @@ const {Key} = require('selenium-webdriver');
 const BasePage = require('./BasePage');
 
 class CompaniesLandingPage extends BasePage {
-
+    baseurl = 'https://www.seek.com.au/companies/';
     companyTile = 'a[href^="/companies/mcdonalds"]';
 
     // enter_search(searchText){
@@ -15,9 +15,17 @@ class CompaniesLandingPage extends BasePage {
     //     this.enterTextByCss(this.searchField, Key.RETURN);
     // }
 
+    go_to_landing_page() {
+        return this.go_to_url(this.baseurl);
+    }
+
     click_on_company(){
         return this.clickByCss(this.companyTile);
     }
+
+
+
+
 }
 
 module.exports = new CompaniesLandingPage();

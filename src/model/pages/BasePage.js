@@ -4,6 +4,7 @@ var driver = new webdriver.Builder().forBrowser('chrome').build();
 driver.manage().setTimeouts({implicit: (10000)});
 
 class BasePage{
+    
     constructor(){
         global.driver = driver;
     }
@@ -16,12 +17,20 @@ class BasePage{
         driver.findElement(By.css(css)).sendKeys(searchText);
     }
 
+    getById(id) {
+        return driver.findElement(By.id(id));
+    }
+
+    getByCss(cssEl) {
+        return driver.findElement(By.css(cssEl));
+    }
+
     clickById(id){
-        driver.findElement(By.id(id)).click();
+        this.getById(id).click();
     }
 
     clickByCss(cssEl){
-        return driver.findElement(By.css(cssEl)).click();
+        return this.getByCss(cssEl).click();
     }
 
     sleep(seconds){
