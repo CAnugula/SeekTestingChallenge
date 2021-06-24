@@ -1,7 +1,7 @@
 const {By} = require('selenium-webdriver');
 
 class BasePage {
-    baseurl = 'https://www.seek.com.au/';
+    baseurl = 'https://www.seek.com.au/companies/';
     constructor(driver) {
         this.driver = driver;
     }
@@ -18,6 +18,14 @@ class BasePage {
         return this.driver.findElement(By.id(id));
     }
 
+    getElementsById(){
+        return this.driver.findElements(By.id(id));
+    }
+
+    getElementsByCss(css_locator){
+        return this.driver.findElements(By.css(css_locator));
+    }
+
     getByCss(cssEl) {
         return this.driver.findElement(By.css(cssEl));
     }
@@ -29,10 +37,10 @@ class BasePage {
     clickByCss(cssEl){
         return this.getByCss(cssEl).click();
     }
-
-    sleep(seconds){
-        var e = new Date().getTime() + (seconds * 1000);
-        while (new Date().getTime() <= e) {}
+    
+    clickByLinkText(linkTxt)
+    {
+        return this.driver.findElement(By.linkText(linkTxt)).click();
     }
 
 }
