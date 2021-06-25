@@ -18,7 +18,7 @@ class BasePage {
     return this.driver.findElement(By.id(id));
   }
 
-  getElementsById() {
+  getElementsById(id) {
     return this.driver.findElements(By.id(id));
   }
 

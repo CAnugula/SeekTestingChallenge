@@ -1,7 +1,7 @@
 {
   "name": "seek_testing_challenge",
   "version": "1.0.0",
-  "type":"commonjs",
+  "type": "commonjs",
   "scripts": {
     "test": "mocha src/tests/**/*.js --timeout 999999"
   },
